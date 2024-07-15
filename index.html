@@ -14,14 +14,38 @@
     <nav class="bg-blue-600 text-white p-4">
         <div class="container mx-auto flex justify-between items-center">
             <h1 class="text-2xl font-bold font-cursive">Android Dev</h1>
-            <ul class="flex space-x-4">
-                <li><a href="#home" class="hover:text-gray-300">Home</a></li>
-                <li><a href="#projects" class="hover:text-gray-300">Projects</a></li>
-                <li><a href="#skills" class="hover:text-gray-300">Skills</a></li>
-                <li><a href="#contact" class="hover:text-gray-300">Contact</a></li>
-            </ul>
+            <div class="hidden md:flex">
+                <ul class="flex space-x-4">
+                    <li><a href="#home" class="hover:text-gray-300">Home</a></li>
+                    <li><a href="#projects" class="hover:text-gray-300">Projects</a></li>
+                    <li><a href="#skills" class="hover:text-gray-300">Skills</a></li>
+                    <li><a href="#contact" class="hover:text-gray-300">Contact</a></li>
+                </ul>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-white focus:outline-none">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
         </div>
     </nav>
+    
+    <div id="mobile-menu" class="hidden md:hidden bg-blue-600 text-white">
+        <ul class="flex flex-col items-center py-4">
+            <li class="py-2"><a href="#home" class="hover:text-gray-300">Home</a></li>
+            <li class="py-2"><a href="#projects" class="hover:text-gray-300">Projects</a></li>
+            <li class="py-2"><a href="#skills" class="hover:text-gray-300">Skills</a></li>
+            <li class="py-2"><a href="#contact" class="hover:text-gray-300">Contact</a></li>
+        </ul>
+    </div>
+
+    <script>
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+    </script>
 
     <header id="home" class="bg-gray-800 text-white py-20">
         <div class="container mx-auto text-center">
