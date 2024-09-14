@@ -4,688 +4,629 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abhishek Tiwari</title>
+    <title>Abhishek Tiwari Portfolio</title>
+
+    <meta name="description"
+        content="Abhishek Tiwari's portfolio showcasing projects, skills, and experience in software development. Find my work on GitHub and more.">
+    <meta name="keywords"
+        content="Abhishek Tiwari, portfolio, software developer, GitHub, projects, skills, web development, full-stack, JavaScript, Python, React, Node.js, database, API, responsive design, UI/UX, agile methodologies, version control, problem-solving, app development, playstore, android, ios, java, kotlin, python, reactnative, flutter,android sdk">
+    <meta name="author" content="Abhishek Tiwari">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://abhitiwari2023.github.io/portfolio-website/">
+    <meta property="og:title" content="Abhishek Tiwari Portfolio">
+    <meta property="og:description"
+        content="Explore Abhishek Tiwari's software development projects and skills. Connect on GitHub and more.">
+    <meta property="og:image" content="https://abhitiwari2023.github.io/portfolio-website/profile.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://abhitiwari2023.github.io/portfolio-website/">
+    <meta property="twitter:title" content="Abhishek Tiwari Portfolio">
+    <meta property="twitter:description"
+        content="Explore Abhishek Tiwari's software development projects and skills. Connect on GitHub and more.">
+    <meta property="twitter:image" content="https://abhitiwari2023.github.io/portfolio-website/profile.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://abhitiwari2023.github.io/portfolio-website/">
+
+    <!-- Favicon -->
     <link rel="shortcut icon" href="https://www.vectorlogo.zone/logos/android/android-icon.svg" type="image/x-icon">
-    <link rel="stylesheet" href="styles.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        @layer components {
+            .btn-primary {
+                @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded;
+            }
+
+            .section-heading {
+                @apply text-2xl font-bold mb-4 text-gray-800;
+            }
+        }
+
+        /* Vertical scrollbar styles */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, #3B82F6, #10B981, #F59E0B, #EF4444);
+            border-radius: 6px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(to bottom, #2563EB, #059669, #D97706, #DC2626);
+        }
+    </style>
 </head>
 
-<body>
-    <header>
-
-        <nav>
-            <ul>
-                <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
-                <li><a href="#projects"><i class="fas fa-code"></i> Projects</a></li>
-                <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+<body class="bg-gray-100">
+    <!-- navigation -->
+    <nav class="bg-white shadow-md fixed top-0 left-0 right-0 z-10 transition-all duration-300">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <h1 class="text-2xl font-bold text-gray-800">Abhishek Tiwari</h1>
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-gray-600 hover:text-gray-800 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+                <ul class="hidden md:flex space-x-8">
+                    <li><a href="#about"
+                            class="text-gray-600 hover:text-blue-800 hover:bg-gray-100 transition-colors duration-300">About</a>
+                    </li>
+                    <li><a href="#projects"
+                            class="text-gray-600 hover:text-blue-800 hover:bg-gray-100 transition-colors duration-300">Projects</a>
+                    </li>
+                    <li><a href="#skills"
+                            class="text-gray-600 hover:text-blue-800 hover:bg-gray-100 transition-colors duration-300">Skills</a>
+                    </li>
+                    <li><a href="#contact"
+                            class="text-gray-600 hover:text-blue-800 hover:bg-gray-100 transition-colors duration-300">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden">
+            <ul class="bg-white py-2">
+                <li><a href="#about" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">About</a></li>
+                <li><a href="#projects" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Projects</a></li>
+                <li><a href="#skills" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Skills</a></li>
+                <li><a href="#contact" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Contact</a></li>
             </ul>
-        </nav>
-        <style>
-            @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
+        </div>
+    </nav>
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
 
-            nav {
-                background-color: #333;
-                padding: 1rem;
-            }
-
-            nav ul {
-                list-style-type: none;
-                display: flex;
-                justify-content: space-around;
-                padding: 0;
-                margin: 0;
-            }
-
-            nav ul li a {
-                color: white;
-                text-decoration: none;
-                font-size: 1.2rem;
-                transition: all 0.3s ease;
-            }
-
-            nav ul li a:hover {
-                color: #ffd700;
-                transform: scale(1.1);
-            }
-
-            nav ul li a i {
-                margin-right: 0.5rem;
-            }
-
-            @keyframes fadeIn {
-                from {
-                    opacity: 0;
-                }
-
-                to {
-                    opacity: 1;
-                }
-            }
-
-            nav ul li {
-                animation: fadeIn 0.5s ease-in-out;
-            }
-        </style>
-
+    <!-- hero section -->
+    <header
+        class="bg-blue-100 text-white py-16 bg-cover bg-center h-screen flex items-center relative transition-all duration-300 hover:bg-blue-200"
+        style="background-image: url('https://source.android.com/static/docs/setup/images/Android_symbol_green_RGB.png'); background-attachment: fixed;">
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h1 class="text-4xl font-bold mb-4">Abhishek Tiwari</h1>
+            <p class="text-xl">Android Developer</p>
+        </div>
+        <div class="absolute inset-0 bg-black opacity-50"></div>
     </header>
 
-    <main>
-        <!-- Home Section -->
-
-        <section id="home" class="home-section">
-            <div class="container">
-                <h1 class="welcome-text"><i class="fas fa-code"></i> Welcome to My Portfolio</h1>
-                <p class="tagline">Crafting Digital Experiences with Passion and Precision</p>
-                <a href="#about" class="cta-button"><i class="fas fa-arrow-down"></i> Explore More</a>
+    <main class="container mx-auto px-4 py-8">
+        <!-- about section -->
+        <section id="about" class="mb-12">
+            <h2 class="section-heading text-center text-3xl font-extrabold text-gray-900 sm:text-4xl">About Me</h2>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/3 mb-4 md:mb-0">
+                    <img src="./profile.jpg" alt="Profile Picture" class="rounded-full w-48 h-48 object-center mx-auto">
+                </div>
+                <div class="md:w-2/3 md:pl-8">
+                    <p class="text-gray-600 mb-4">I'm a passionate Android developer with 6 months of experience in
+                        creating innovative mobile applications. I specialize in Kotlin and Java, and I'm always eager
+                        to learn new technologies.</p>
+                    <p class="text-gray-600 mb-4">My expertise includes building scalable and performant apps,
+                        implementing modern Android architecture patterns, and creating intuitive user interfaces. I'm
+                        committed to staying up-to-date with the latest Android development trends and best practices.
+                    </p>
+                    <div class="flex space-x-8">
+                        <a href="./Abhishek_Tiwari_Resume.pdf"
+                            class="btn-primary flex items-center justify-center space-x-2 transition-transform duration-300 ease-in-out transform hover:scale-105">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+                                fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <span>Download CV</span>
+                        </a>
+                        <a href="#contact"
+                            class="btn-primary flex items-center justify-center space-x-2 transition-transform duration-300 ease-in-out transform hover:scale-105">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+                                fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M14.243 5.757a6 6 0 10-.986 9.284 1 1 0 111.087 1.678A8 8 0 1118 10a3 3 0 01-4.8 2.401A4 4 0 1114 10a1 1 0 102 0c0-1.537-.586-3.07-1.757-4.243zM12 10a2 2 0 10-4 0 2 2 0 004 0z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <span>Get in Touch</span>
+                        </a>
+                    </div>
+                </div>
             </div>
         </section>
-        <style>
-            .home-section {
-                min-height: 100vh;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                background: linear-gradient(45deg, #6a11cb 0%, #2575fc 100%);
-                text-align: center;
-                color: black;
-            }
 
-            .welcome-text {
-                font-size: 3rem;
-                margin-bottom: 1rem;
-                animation: slideInFromTop 1s ease-out;
-            }
-
-            .tagline {
-                font-size: 1.5rem;
-                margin-bottom: 2rem;
-                animation: fadeIn 1.5s ease-in;
-            }
-
-            .cta-button {
-                display: inline-block;
-                padding: 1rem 2rem;
-                background-color: #ffd700;
-                color: #333;
-                text-decoration: none;
-                border-radius: 5px;
-                font-weight: bold;
-                transition: all 0.3s ease;
-                animation: pulse 2s infinite;
-            }
-
-            .cta-button:hover {
-                background-color: #fff;
-                color: #6a11cb;
-            }
-
-            @keyframes slideInFromTop {
-                0% {
-                    transform: translateY(-100%);
-                    opacity: 0;
-                }
-
-                100% {
-                    transform: translateY(0);
-                    opacity: 1;
-                }
-            }
-
-            @keyframes pulse {
-                0% {
-                    transform: scale(1);
-                }
-
-                50% {
-                    transform: scale(1.05);
-                }
-
-                100% {
-                    transform: scale(1);
-                }
-            }
-        </style>
-
-
-        <!-- About Section -->
-        <section id="about" class="about-section">
-            <div class="container">
-                <div class="profile-info">
-                    <img src="./profile.jpg" alt="Developer's Profile Picture" class="profile-picture">
-                    <h1 class="developer-name">Abhishek Tiwari</h1>
-                    <p class="developer-title">Android Developer</p>
+        <!-- projects section -->
+        <section id="projects" class="mb-12">
+            <h2 class="section-heading text-center text-3xl font-extrabold text-gray-900 sm:text-4xl mb-8">Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- project 1 -->
+                <div
+                    class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
+                    <!-- <img src="https://via.placeholder.com/400x200" alt="Project 1" class="w-full h-48 object-cover"> -->
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Tavite Group of Education, katni (MP)</h3>
+                        <p class="text-gray-600 mb-4">🎓 Developed a comprehensive educational app for Tavite Group of
+                            Education.
+                            <br> 📚 Streamlined student information management, course scheduling, and grade tracking.
+                            <br>📱 Implemented push notifications for important updates and events.
+                            <br>🔒 Ensured data security with robust authentication and encryption measures.
+                            <br>🚀 Resulted in improved communication between students, parents, and faculty.
+                            <br>🚀My First App live On google Play Store.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <a href="https://play.google.com/store/apps/details?id=tavitecollege.org"
+                                class="btn-primary inline-flex items-center">
+                                <span>View Details</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </a>
+                            <div class="flex space-x-2">
+                                <span
+                                    class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">Android</span>
+                                <span
+                                    class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded">Java</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="about-me">
-                    <h2><i class="fas fa-user-circle"></i> About Me</h2>
-                    <p>I am a passionate Android developer with expertise in creating innovative mobile applications.
-                        With a strong foundation in Java and Kotlin, I specialize in developing robust and user-friendly
-                        Android apps that deliver exceptional user experiences. My skills extend to working with various
-                        Android frameworks and libraries, as well as integrating RESTful APIs and implementing modern
-                        design patterns. I am committed to staying up-to-date with the latest Android development trends
-                        and best practices to create cutting-edge mobile solutions.</p>
-
+                <!-- project 2 -->
+                <div
+                    class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
+                    <!-- <img src="https://via.placeholder.com/400x200" alt="Project 2" class="w-full h-48 object-cover"> -->
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Local News App</h3>
+                        <p class="text-gray-600 mb-4">📰 Developed a dynamic local news app for real-time updates.
+                            <br>🌍 Integrated geolocation for personalized, location-based news delivery.
+                            <br>🔍 Implemented advanced search and filtering options for easy news discovery.
+                            <br>🔔 Added customizable push notifications for breaking news alerts.
+                            <br>📊 Incorporated data analytics for user engagement insights and content optimization.
+                            <br>🌙 Designed with a sleek dark mode for comfortable night-time reading.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <a href="https://play.google.com/store/apps/details?id=localapp.vsr"
+                                class="btn-primary inline-flex items-center">
+                                <span>View Details</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </a>
+                            <div class="flex space-x-2">
+                                <span
+                                    class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">Android</span>
+                                <span
+                                    class="bg-purple-100 text-purple-800 text-xs font-semibold px-2.5 py-0.5 rounded">React
+                                    Native</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="skills">
-                    <h2><i class="fas fa-code"></i> Skills</h2>
-                    <ul class="skill-list">
-                        <li><i class="fab fa-android"></i> Kotlin</li>
-                        <li><i class="fab fa-java"></i> Java</li>
-                        <li><i class="fab fa-js"></i> JavaScript</li>
-                        <li><i class="fab fa-android"></i> XML</li>
-                        <li><i class="fab fa-html5"></i> HTML5</li>
-                        <li><i class="fab fa-css3-alt"></i> CSS3</li>
-                        <li><i class="fab fa-git"></i> Git</li>
-                        <li><i class="fab fa-github"></i> GitHub</li>
-                        <li><i class="fas fa-database"></i> Firebase</li>
-                        <li><i class="fab fa-android"></i> Android Studio</li>
-                        <li><i class="fab fa-react"></i> React Native</li>
-                        <li><i class="fas fa-mobile-alt"></i> Flutter</li>
+                <!-- project 3 -->
+                <div
+                    class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
+                    <!-- <img src="https://via.placeholder.com/400x200" alt="Project 3" class="w-full h-48 object-cover"> -->
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">MP3 Music Player App</h3>
+                        <p class="text-gray-600 mb-4">🎵 Created a feature-rich MP3 music player app for Android
+                            devices.
+                            <br>🎨 Implemented a sleek and intuitive user interface for seamless navigation.
+                            <br>📂 Developed smart playlist management and music library organization.
+                            <br>🎚️ Integrated advanced audio controls including equalizer and crossfade.
+                            <br>🔄 Added support for various audio formats and online streaming services.
+                            <br>🌈 Designed customizable themes and visualizations for enhanced user experience.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <a href="https://github.com/abhitiwari2023/Mp3-music-player-app"
+                                class="btn-primary inline-flex items-center">
+                                <span>View Details</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </a>
+                            <div class="flex space-x-2">
+                                <span
+                                    class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">Android</span>
+                                <span class="bg-red-100 text-red-800 text-xs font-semibold px-2.5 py-0.5 rounded">Java
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- skills section -->
+        <section id="skills" class="mb-12">
+            <h2 class="section-heading text-center text-3xl font-extrabold text-gray-900 sm:text-4xl mb-8">Skills</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <!-- Programming Languages -->
+                <div class="bg-white p-4 rounded-lg shadow-md">
+                    <h3 class="text-lg font-semibold mb-2 flex items-center">
+                        <!-- <img src="https://cdn-icons-png.flaticon.com/512/1005/1005141.png" alt="Programming Languages"
+                            class="w-6 h-6 mr-2"> -->
+                        Languages
+                    </h3>
+                    <ul class="space-y-1">
+                        <li class="flex items-center">
+                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/kotlin/kotlin-original.svg"
+                                alt="Kotlin" class="w-5 h-5 mr-2">
+                            Kotlin
+                        </li>
+                        <li class="flex items-center">
+                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg"
+                                alt="Java" class="w-5 h-5 mr-2">
+                            Java
+                        </li>
+                        <li class="flex items-center">
+                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-original.svg"
+                                alt="C++" class="w-5 h-5 mr-2">
+                            C++
+                        </li>
+                        <li class="flex items-center">
+                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg"
+                                alt="Python" class="w-5 h-5 mr-2">
+                            Python
+                        </li>
+                    </ul>
+                </div>
+                <!-- Libraries and Frameworks -->
+                <div class="bg-white p-4 rounded-lg shadow-md">
+                    <h3 class="text-lg font-semibold mb-2 flex items-center">
+                        <!-- <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/android/android-original.svg"
+                            alt="Frameworks" class="w-6 h-6 mr-2"> -->
+                        Frameworks
+                    </h3>
+                    <ul class="space-y-1">
+                        <li class="flex items-center">
+                            <img src="https://developer.android.com/images/logos/android.svg" alt="Android SDK"
+                                class="w-4 h-4 mr-2">
+                            Android SDK
+                        </li>
+                        <li class="flex items-center">
+                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/kotlin/kotlin-original.svg"
+                                alt="Kotlin" class="w-4 h-4 mr-2">
+                            Jetpack Compose
+                        </li>
+                        <li class="flex items-center">
+                            <img src="https://storage.googleapis.com/cms-storage-bucket/4fd0db61df0567c0f352.png"
+                                alt="Flutter" class="w-4 h-4 mr-2">
+                            Flutter
+                        </li>
+                        <li class="flex items-center">
+                            <img src="https://d33wubrfki0l68.cloudfront.net/554c3b0e09cf167f0281fda839a5433f2040b349/ecfc9/img/header_logo.svg"
+                                alt="React Native" class="w-4 h-4 mr-2">
+                            React Native
+                        </li>
+                    </ul>
+                </div>
+                <!-- Tools and Technologies -->
+                <div class="bg-white p-4 rounded-lg shadow-md">
+                    <h3 class="text-lg font-semibold mb-2 flex items-center">
+                        <!-- <img src="https://cdn-icons-png.flaticon.com/512/2942/2942789.png" alt="Architecture"
+                            class="w-6 h-6 mr-2"> -->
+                        Architecture
+                    </h3>
+                    <ul class="space-y-1">
+                        <li class="flex items-center">
+                            <img src="https://cdn.iconscout.com/icon/free/png-256/free-mvvm-3-1175119.png" alt="MVVM"
+                                class="w-4 h-4 mr-2">
+                            MVVM
+                        </li>
+                        <li class="flex items-center">
+                            <img src="https://miro.medium.com/max/1400/1*0R0r00uF1RyRFxkxo3HVDg.png"
+                                alt="Clean Architecture" class="w-4 h-4 mr-2">
+                            Clean Architecture
+                        </li>
+                        <li class="flex items-center">
+                            <img src="https://cdn.iconscout.com/icon/free/png-256/free-mvvm-3-1175119.png" alt="MVI"
+                                class="w-4 h-4 mr-2">
+                            MVI
+                        </li>
+                        <li class="flex items-center">
+                            <img src="https://cdn.iconscout.com/icon/free/png-256/free-mvp-1-1175120.png" alt="MVP"
+                                class="w-4 h-4 mr-2">
+                            MVP
+                        </li>
+                    </ul>
+                </div>
+                <!-- Libraries and Frameworks -->
+                <div class="bg-white p-4 rounded-lg shadow-md">
+                    <h3 class="text-lg font-semibold mb-2 flex items-center">
+                        <!-- <img src="https://cdn-icons-png.flaticon.com/512/2942/2942789.png" alt="Libraries"
+                            class="w-6 h-6 mr-2"> -->
+                        Libraries
+                    </h3>
+                    <ul class="space-y-1">
+                        <li class="flex items-center">
+                            <img src="https://cdn-icons-png.flaticon.com/512/4248/4248443.png" alt="Database"
+                                class="w-4 h-4 mr-2">
+                            Room Database
+                        </li>
+                        <li class="flex items-center">
+                            <img src="https://cdn-icons-png.flaticon.com/512/2885/2885417.png" alt="API"
+                                class="w-4 h-4 mr-2">
+                            Retrofit
+                        </li>
+                        <li class="flex items-center">
+                            <img src="https://cdn-icons-png.flaticon.com/512/4149/4149882.png" alt="Dagger Hilt"
+                                class="w-4 h-4 mr-2">
+                            Dagger Hilt
+                        </li>
+                        <li class="flex items-center">
+                            <img src="https://kotlinlang.org/docs/images/kotlin-logo.png" alt="Coroutines"
+                                class="w-4 h-4 mr-2">
+                            Coroutines
+                        </li>
+                        <li class="flex items-center">
+                            <img src="https://reactivex.io/assets/Rx_Logo_S.png" alt="RxJava" class="w-4 h-4 mr-2">
+                            RxJava
+                        </li>
+                    </ul>
+                </div>
+                <!-- Tools and Technologies -->
+                <div class="bg-white p-4 rounded-lg shadow-md">
+                    <h3 class="text-lg font-semibold mb-2 flex items-center">
+                        <!-- <img src="https://cdn-icons-png.flaticon.com/512/2942/2942789.png" alt="Tools"
+                            class="w-6 h-6 mr-2"> -->
+                        Tools
+                    </h3>
+                    <ul class="space-y-1">
+                        <li class="flex items-center">
+                            <img src="https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png" alt="Git"
+                                class="w-4 h-4 mr-2">
+                            Git
+                        </li>
+                        <li class="flex items-center">
+                            <img src="https://developer.android.com/studio/images/studio-icon.svg" alt="Android Studio"
+                                class="w-4 h-4 mr-2">
+                            Android Studio
+                        </li>
+                        <li class="flex items-center">
+                            <img src="https://www.gstatic.com/mobilesdk/160503_mobilesdk/logo/2x/firebase_28dp.png"
+                                alt="Firebase" class="w-4 h-4 mr-2">
+                            Firebase
+                        </li>
+                        <li class="flex items-center">
+                            <img src="https://wac-cdn.atlassian.com/assets/img/favicons/atlassian/favicon.png"
+                                alt="Jira" class="w-4 h-4 mr-2">
+                            Jira
+                        </li>
+                    </ul>
+                </div>
+                <!-- Testing -->
+                <div class="bg-white p-4 rounded-lg shadow-md">
+                    <h3 class="text-lg font-semibold mb-2 flex items-center">
+                        <!-- <img src="https://cdn-icons-png.flaticon.com/512/2942/2942789.png" alt="Testing"
+                            class="w-6 h-6 mr-2"> -->
+                        Testing
+                    </h3>
+                    <ul class="space-y-1">
+                        <li class="flex items-center">
+                            <img src="https://junit.org/junit5/assets/img/junit5-logo.png" alt="JUnit"
+                                class="w-4 h-4 mr-2">
+                            JUnit
+                        </li>
+                        <li class="flex items-center">
+                            <img src="https://developer.android.com/images/training/testing/espresso.png" alt="Espresso"
+                                class="w-4 h-4 mr-2">
+                            Espresso
+                        </li>
+                        <!-- <li class="flex items-center">
+                            <img src="https://raw.githubusercontent.com/mockito/mockito/main/src/javadoc/org/mockito/logo.png"
+                                alt="Mockito" class="w-4 h-4 mr-2">
+                            Mockito
+                        </li> -->
                     </ul>
                 </div>
             </div>
         </section>
-        <style>
-            .about-section {
-                min-height: 100vh;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            }
-
-            .container {
-                max-width: 1000px;
-                padding: 2rem;
-                background-color: rgba(255, 255, 255, 0.9);
-                border-radius: 15px;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            }
-
-            .profile-info {
-                text-align: center;
-                margin-bottom: 2rem;
-            }
-
-            .profile-picture {
-                width: 200px;
-                height: 200px;
-                border-radius: 50%;
-                object-fit: contain;
-                border: 5px solid #fff;
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-                animation: float 3s ease-in-out infinite;
-            }
-
-            .developer-name {
-                font-size: 2.5rem;
-                margin: 1rem 0 0.5rem;
-                color: #333;
-            }
-
-            .developer-title {
-                font-size: 1.2rem;
-                color: #666;
-            }
-
-            .about-me,
-            .skills {
-                margin-bottom: 2rem;
-            }
-
-            .about-me h2,
-            .skills h2 {
-                font-size: 1.8rem;
-                color: #333;
-                margin-bottom: 1rem;
-            }
-
-            .about-me p {
-                font-size: 1.1rem;
-                color: #666;
-                line-height: 1.6;
-            }
-
-            .skill-list {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                list-style-type: none;
-                padding: 0;
-            }
-
-            .skill-list li {
-                background-color: #f0f0f0;
-                color: #333;
-                padding: 0.5rem 1rem;
-                margin: 0.5rem;
-                border-radius: 20px;
-                font-size: 1rem;
-                transition: all 0.3s ease;
-            }
-
-            .skill-list li:hover {
-                background-color: #333;
-                color: #fff;
-                transform: translateY(-5px);
-            }
-
-            .skill-list li i {
-                margin-right: 0.5rem;
-            }
-
-            @keyframes float {
-                0% {
-                    transform: translateY(0px);
-                }
-
-                50% {
-                    transform: translateY(-20px);
-                }
-
-                100% {
-                    transform: translateY(0px);
-                }
-            }
-
-            @keyframes fadeInUp {
-                from {
-                    opacity: 0;
-                    transform: translateY(20px);
-                }
-
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-
-            .container>* {
-                animation: fadeInUp 0.6s ease-out forwards;
-                opacity: 0;
-            }
-
-            .container>*:nth-child(1) {
-                animation-delay: 0.2s;
-            }
-
-            .container>*:nth-child(2) {
-                animation-delay: 0.4s;
-            }
-
-            .container>*:nth-child(3) {
-                animation-delay: 0.6s;
-            }
-        </style>
-
-        <!-- projects section -->
-
-        <section id="projects" class="section">
-            <div class="container">
-                <h2 class="section-title">Projects</h2>
-                <div class="project-filters">
-                    <button class="filter-btn active" data-filter="all"> All</button>
-                    <button class="filter-btn" data-filter="java"><img
-                            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
-                            alt="Java icon" width="16" height="16"></i> Java</button>
-                    <button class="filter-btn" data-filter="kotlin"><img
-                            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-plain.svg"
-                            alt="Kotlin icon" width="16" height="16"> Kotlin</button>
-                    <button class="filter-btn" data-filter="react-native"><img
-                            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
-                            alt="React Native icon" width="16" height="16"> React Native</button>
-                    <button class="filter-btn" data-filter="flutter"><img
-                            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg"
-                            alt="Flutter icon" width="16" height="16"> Flutter</button>
-                </div>
-                <div class="project-grid">
-                    <!-- Project items will be dynamically added here -->
-                </div>
-            </div>
-        </section>
-
-        <style>
-            #projects {
-                margin-top: 20px;
-                margin-bottom: 20px;
-                background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            }
-
-            .project-filters {
-                display: flex;
-                justify-content: center;
-                margin-bottom: 2rem;
-                flex-wrap: wrap;
-            }
-
-            .filter-btn {
-                background-color: #f0f0f0;
-                color: #333;
-                border: none;
-                padding: 0.5rem 1rem;
-                margin: 0.5rem;
-                border-radius: 20px;
-                font-size: 1rem;
-                cursor: pointer;
-                transition: all 0.3s ease;
-            }
-
-            .filter-btn:hover,
-            .filter-btn.active {
-                background-color: #333;
-                color: #fff;
-            }
-
-            .project-grid {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                gap: 2rem;
-            }
-
-            /* @media screen and (max-width: 768px) {
-                .project-grid {
-                    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-                    gap: 1.5rem;
-                }
-            }
-
-            @media screen and (max-width: 480px) {
-                .project-grid {
-                    grid-template-columns: 1fr;
-                    gap: 1rem;
-                }
-            } */
-
-            .project-item {
-                background-color: #fff;
-                border-radius: 10px;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-                overflow: hidden;
-                transition: all 0.3s ease;
-                width: 100%;
-                max-width: 400px;
-                margin: 0 auto;
-            }
-
-            /* @media screen and (max-width: 768px) {
-                .project-item {
-                    max-width: 100%;
-                }
-            } */
-
-            .project-item:hover {
-                transform: translateY(-5px);
-                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-            }
-
-            .project-image {
-                width: 100%;
-                height: 200px;
-                object-fit: cover;
-            }
-
-            .project-info {
-                padding: 1rem;
-            }
-
-            .project-title {
-                font-size: 1.2rem;
-                margin-bottom: 0.5rem;
-            }
-
-            .project-description {
-                font-size: 0.9rem;
-                color: #666;
-                margin-bottom: 1rem;
-            }
-
-            .project-tags {
-                display: flex;
-                flex-wrap: wrap;
-            }
-
-            .project-tag {
-                background-color: #f0f0f0;
-                color: #333;
-                padding: 0.2rem 0.5rem;
-                margin-right: 0.5rem;
-                margin-bottom: 0.5rem;
-                border-radius: 10px;
-                font-size: 0.8rem;
-            }
-
-            /* @media screen and (max-width: 768px) {
-                .project-grid {
-                    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-                    gap: 1rem;
-                }
-
-                .project-image {
-                    height: 150px;
-                }
-
-                .project-title {
-                    font-size: 1rem;
-                }
-
-                .project-description {
-                    font-size: 0.8rem;
-                }
-
-                .project-tag {
-                    font-size: 0.7rem;
-                }
-            } */
-
-            /* @media screen and (max-width: 480px) {
-                .filter-btn {
-                    font-size: 0.9rem;
-                    padding: 0.4rem 0.8rem;
-                }
-
-                .project-grid {
-                    grid-template-columns: 1fr;
-                }
-            } */
-        </style>
-
-        <script>
-            // Sample project data
-            const projects = [
-                { title: "Java Project 1", description: "A sample Java project", tags: ["java", "spring"], image: "https://via.placeholder.com/300x200.png?text=Java+Project+1" },
-                { title: "Kotlin App", description: "A mobile app built with Kotlin", tags: ["kotlin", "android"], image: "https://via.placeholder.com/300x200.png?text=Kotlin+App" },
-                { title: "Python Script", description: "A useful Python script", tags: ["python"], image: "https://via.placeholder.com/300x200.png?text=Python+Script" },
-                { title: "JavaScript Game", description: "A browser-based game", tags: ["javascript", "html5"], image: "https://via.placeholder.com/300x200.png?text=JavaScript+Game" },
-            ];
-
-            const projectGrid = document.querySelector('.project-grid');
-            const filterButtons = document.querySelectorAll('.filter-btn');
-
-            // Function to create project items
-            function createProjectItem(project) {
-                return `
-                             <div class="project-item" data-tags="${project.tags.join(' ')}">
-                                 <img src="${project.image}" alt="${project.title}" class="project-image">
-                                 <div class="project-info">
-                                     <h3 class="project-title">${project.title}</h3>
-                                     <p class="project-description">${project.description}</p>
-                                     <div class="project-tags">
-                                         ${project.tags.map(tag => `<span class="project-tag">${tag}</span>`).join('')}
-                                     </div>
-                                 </div>
-                             </div>
-                         `;
-            }
-
-            // Function to filter projects
-            function filterProjects(filter) {
-                const projectItems = document.querySelectorAll('.project-item');
-                projectItems.forEach(item => {
-                    if (filter === 'all' || item.dataset.tags.includes(filter)) {
-                        item.style.display = 'block';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
-            }
-
-            // Add project items to the grid
-            projects.forEach(project => {
-                projectGrid.innerHTML += createProjectItem(project);
-            });
-
-            // Add click event listeners to filter buttons
-            filterButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    button.classList.add('active');
-                    filterProjects(button.dataset.filter);
-                });
-            });
-
-            // Initial filter
-            filterProjects('all');
-        </script>
 
         <!-- contact section -->
-
-        <section id="contact" class="contact-section">
-            <h2>Contact Me</h2>
-            <div class="contact-container">
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <h3>Email</h3>
-                    <a href="mailto:24.MCA.Abhi@gmail.com">24.MCA.Abhi@gmail.com</a>
-                </div>
-                <div class="contact-item">
-                    <i class="fab fa-whatsapp"></i>
-                    <h3>WhatsApp</h3>
-                    <a href="https://wa.me/+918817835384" target="_blank">+91 8817835384</a>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-phone"></i>
-                    <h3>Phone</h3>
-                    <a href="tel:+91-8817835384">+91 8817835384</a>
+        <section id="contact" class="py-16 bg-gray-100">
+            <div class="container mx-auto px-4">
+                <h2 class="section-heading text-3xl font-bold text-center mb-12">Contact Me</h2>
+                <div class="max-w-3xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="md:flex">
+                        <!-- get in touch -->
+                        <div class="md:w-1/2 p-8">
+                            <h3 class="text-2xl font-semibold mb-4">Get in Touch</h3>
+                            <p class="text-gray-600 mb-6">Have a question or want to work together? Feel free to reach
+                                out!</p>
+                            <form id="contactForm">
+                                <div class="mb-6">
+                                    <label for="name" class="block text-gray-700 font-bold mb-2">Name</label>
+                                    <input type="text" id="name" name="name"
+                                        class="w-full px-4 py-3 border rounded-lg text-gray-700 focus:outline-none focus:border-blue-500 transition duration-300"
+                                        required>
+                                </div>
+                                <div class="mb-6">
+                                    <label for="email" class="block text-gray-700 font-bold mb-2">Email</label>
+                                    <input type="email" id="email" name="email"
+                                        class="w-full px-4 py-3 border rounded-lg text-gray-700 focus:outline-none focus:border-blue-500 transition duration-300"
+                                        required>
+                                </div>
+                                <div class="mb-6">
+                                    <label for="message" class="block text-gray-700 font-bold mb-2">Message</label>
+                                    <textarea id="message" name="message" rows="4"
+                                        class="w-full px-4 py-3 border rounded-lg text-gray-700 focus:outline-none focus:border-blue-500 transition duration-300"
+                                        required></textarea>
+                                </div>
+                                <button type="submit"
+                                    class="btn-primary w-full py-3 rounded-lg text-white font-bold bg-blue-500 hover:bg-blue-700 transition duration-300">Send
+                                    Message</button>
+                            </form>
+                        </div>
+                        <!-- contact info -->
+                        <div class="md:w-1/2 bg-blue-500 text-white p-8">
+                            <h3 class="text-2xl font-semibold mb-4">Contact Information</h3>
+                            <p class="mb-4">Feel free to contact me using the information below:</p>
+                            <div class="flex items-center mb-4">
+                                <svg class="w-6 h-6 mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
+                                    </path>
+                                </svg>
+                                <span>+91 8817835384</span>
+                            </div>
+                            <div class="flex items-center mb-4">
+                                <svg class="w-6 h-6 mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                                    </path>
+                                </svg>
+                                <span>24.MCA.Abhi@gmail.com</span>
+                            </div>
+                            <div class="flex items-center">
+                                <svg class="w-6 h-6 mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                                    </path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                                <span>Katni, MP, India</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <style>
-            .contact-section {
-                padding: 4rem 0;
-                background-color: #1a1a1a;
-                color: #ffffff;
+        <script>
+            document.getElementById('contactForm').addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                var name = document.getElementById('name').value;
+                var email = document.getElementById('email').value;
+                var message = document.getElementById('message').value;
+
+                // You can replace this with your actual email sending logic
+                // For demonstration, we're using a dummy function
+                sendEmail(name, email, message);
+            });
+
+            function sendEmail(name, email, message) {
+                // This is a placeholder function. In a real application, you would implement
+                // server-side logic to send an email. For now, we'll just log to the console.
+                console.log('Sending email...');
+                console.log('Name:', name);
+                console.log('Email:', email);
+                console.log('Message:', message);
+
+                // Simulating email sent
+                setTimeout(function () {
+                    // Display a success message
+                    alert('📱 Please contact me directly at +91 8817835384 or 📧 24.MCA.Abhi@gmail.com as there is currently no backend to process your message.');
+                    console.log('Message sent successfully!');
+                    document.getElementById('contactForm').reset();
+                }, 1000);
             }
-
-            .contact-section h2 {
-                text-align: center;
-                margin-bottom: 2rem;
-                color: #00ff00;
-            }
-
-            .contact-container {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 2rem;
-            }
-
-            .contact-item {
-                text-align: center;
-                padding: 2rem;
-                background-color: #2a2a2a;
-                border-radius: 8px;
-                box-shadow: 0 4px 6px rgba(0, 255, 0, 0.1);
-                transition: transform 0.3s ease;
-                flex: 1 1 300px;
-                max-width: 350px;
-            }
-
-            .contact-item:hover {
-                transform: translateY(-5px);
-            }
-
-            .contact-item i {
-                font-size: 3rem;
-                color: #00ff00;
-                margin-bottom: 1rem;
-            }
-
-            .contact-item h3 {
-                margin-bottom: 0.5rem;
-                color: #ffffff;
-            }
-
-            .contact-item a {
-                color: #00ff00;
-                text-decoration: none;
-                transition: color 0.3s ease;
-            }
-
-            .contact-item a:hover {
-                color: #00cc00;
-            }
-
-            /* @media screen and (max-width: 768px) {
-                .contact-container {
-                    flex-direction: column;
-                    align-items: center;
-                }
-
-                .contact-item {
-                    width: 100%;
-                    max-width: none;
-                }
-            } */
-        </style>
-
-
+        </script>
     </main>
 
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Connect</h3>
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/24-mca-abhi/" target="_blank" data-name="LinkedIn"><svg
-                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#fff">
-                            <path
-                                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                        </svg></a>
-                    <a href="https://github.com/abhitiwari2023/" target="_blank" data-name="GitHub"><svg
-                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#fff">
-                            <path
-                                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                        </svg></a>
-                    <a href="https://x.com/ind_abhi_tiwari/" target="_blank" data-name="Twitter"><svg
-                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#fff">
-                            <path
-                                d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
-                        </svg></a>
+    <!-- footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">About Me</h3>
+                    <p class="text-gray-400">Passionate Android developer creating innovative mobile solutions.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition duration-300">About</a>
+                        </li>
+                        <li><a href="#projects"
+                                class="text-gray-400 hover:text-white transition duration-300">Projects</a></li>
+                        <li><a href="#skills" class="text-gray-400 hover:text-white transition duration-300">Skills</a>
+                        </li>
+                        <li><a href="#contact"
+                                class="text-gray-400 hover:text-white transition duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Connect</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+                            </svg>
+                        </a>
+                    </div>
                 </div>
             </div>
-            <div class="footer-section">
-                <h3>Resume</h3>
-                <a href="Abhishek_Tiwari_Resume.pdf" download class="download-resume">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                        <polyline points="7 10 12 15 17 10"></polyline>
-                        <line x1="12" y1="15" x2="12" y2="3"></line>
-                    </svg>
-                    Download PDF
-                </a>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p class="text-gray-400">© 2024 Abhishek Tiwari Portfolio. All rights reserved.</p>
             </div>
-            <div class="footer-section">
-                <h3>Contact</h3>
-                <p>Email: 24.MCA.Abhi@gmail.com</p>
-                <p>Phone: +91 8817835384</p>
-                <p>Address: 102, Gram Bichua, Katni, Madhya Pradesh, India</p>
-            </div>
-        </div>
-        <div class="copyright">
-            © 2024 Abhishek Tiwari. All rights reserved.
         </div>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
