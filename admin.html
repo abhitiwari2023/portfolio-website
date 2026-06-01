@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <title>Admin · Abhishek Tiwari</title>
+    <link rel="shortcut icon" href="https://www.vectorlogo.zone/logos/android/android-icon.svg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --bg-base: #06060d;
+            --accent-1: #22d3ee;
+            --accent-2: #8b5cf6;
+            --accent-3: #ec4899;
+        }
+        body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg-base); color: #e5e7eb; }
+        .font-display { font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.02em; }
+        .glass {
+            background: rgba(20, 20, 40, 0.5);
+            backdrop-filter: blur(20px) saturate(140%);
+            -webkit-backdrop-filter: blur(20px) saturate(140%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, var(--accent-1) 0%, var(--accent-2) 50%, var(--accent-3) 100%);
+            -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-2), var(--accent-1));
+            color: white; font-weight: 600;
+            padding: 0.6rem 1.2rem; border-radius: 0.6rem;
+            transition: all 0.2s;
+        }
+        .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 24px rgba(139, 92, 246, 0.4); }
+        .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+        .btn-ghost {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.12);
+            color: #e5e7eb; font-weight: 600;
+            padding: 0.5rem 1rem; border-radius: 0.6rem;
+            transition: all 0.2s;
+        }
+        .btn-ghost:hover { background: rgba(255,255,255,0.08); border-color: rgba(139, 92, 246, 0.4); }
+        .btn-danger {
+            background: rgba(239, 68, 68, 0.15);
+            border: 1px solid rgba(239, 68, 68, 0.4);
+            color: #fca5a5; font-weight: 600;
+            padding: 0.4rem 0.8rem; border-radius: 0.5rem; font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+        .btn-danger:hover { background: rgba(239, 68, 68, 0.25); }
+        input, textarea, select {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: white; padding: 0.6rem 0.8rem; border-radius: 0.5rem;
+            width: 100%; font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: rgba(139, 92, 246, 0.6);
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.15);
+        }
+        label { font-size: 0.8rem; color: #9ca3af; font-weight: 500; display: block; margin-bottom: 0.25rem; }
+        .tab-btn {
+            padding: 0.5rem 1rem; border-radius: 0.5rem;
+            font-size: 0.85rem; font-weight: 500;
+            color: #9ca3af; cursor: pointer;
+            transition: all 0.2s; white-space: nowrap;
+        }
+        .tab-btn:hover { background: rgba(255,255,255,0.04); color: white; }
+        .tab-btn.active {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(34, 211, 238, 0.15));
+            color: white;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+        }
+        .card {
+            background: rgba(20, 20, 40, 0.4);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 1rem; padding: 1rem;
+        }
+        .toast {
+            position: fixed; bottom: 24px; right: 24px;
+            padding: 12px 20px; border-radius: 10px;
+            background: rgba(34, 197, 94, 0.15);
+            border: 1px solid rgba(34, 197, 94, 0.4);
+            color: #bbf7d0; font-weight: 500;
+            backdrop-filter: blur(12px);
+            transform: translateY(100px); opacity: 0;
+            transition: all 0.3s; z-index: 1000;
+        }
+        .toast.show { transform: translateY(0); opacity: 1; }
+        .toast.error { background: rgba(239,68,68,0.15); border-color: rgba(239,68,68,0.4); color: #fca5a5; }
+    </style>
+</head>
+<body class="min-h-screen">
+
+<!-- LOGIN SCREEN -->
+<div id="login-view" class="min-h-screen flex items-center justify-center px-4">
+    <div class="w-full max-w-md">
+        <div class="text-center mb-8">
+            <div class="w-16 h-16 rounded-2xl mx-auto mb-4 flex items-center justify-center font-display font-bold text-white text-2xl" style="background: linear-gradient(135deg, var(--accent-1), var(--accent-2), var(--accent-3));">A</div>
+            <h1 class="font-display text-3xl font-bold text-white">Admin <span class="text-gradient">Panel</span></h1>
+            <p class="text-gray-400 text-sm mt-2">Sign in to manage your portfolio</p>
+        </div>
+
+        <div class="glass rounded-2xl p-6">
+            <div id="setup-warning" class="hidden mb-4 p-4 rounded-lg bg-yellow-500/10 border border-yellow-500/30 text-yellow-200 text-sm">
+                ⚠ Firebase is not configured yet. Open <code class="bg-black/30 px-1 rounded">assets/js/firebase-config.js</code>, paste your config, and set <code class="bg-black/30 px-1 rounded">FIREBASE_ENABLED = true</code>. See <a href="./SETUP.md" class="underline">SETUP.md</a>.
+            </div>
+            <div id="admin-email-hint" class="hidden mb-4 text-xs text-gray-500 text-center">
+                Admin: <span id="admin-email-display"></span>
+            </div>
+
+            <p class="text-sm text-gray-400 mb-4 text-center">Only the admin Google account can sign in.</p>
+            <button id="google-login-btn" class="btn-primary w-full inline-flex items-center justify-center gap-3">
+                <svg class="w-5 h-5" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3c-1.6 4.7-6.1 8-11.3 8-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.3-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 16 19 13 24 13c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2c-2 1.4-4.5 2.4-7.2 2.4-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2c-.4.4 6.6-4.8 6.6-14.8 0-1.3-.1-2.3-.4-3.5z"/></svg>
+                Sign in with Google
+            </button>
+            <div id="login-error" class="hidden text-sm text-red-300 text-center mt-3"></div>
+
+            <div class="mt-6 pt-6 border-t border-white/5 text-center">
+                <a href="./index.html" class="text-xs text-gray-500 hover:text-white">← Back to site</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dashboard-view" class="hidden">
+    <header class="glass border-b border-white/5 sticky top-0 z-40">
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg flex items-center justify-center font-display font-bold text-white text-sm" style="background: linear-gradient(135deg, var(--accent-1), var(--accent-2), var(--accent-3));">A</div>
+                <div>
+                    <div class="font-display font-bold text-white text-sm">Admin Panel</div>
+                    <div class="text-xs text-gray-500" id="user-email"></div>
+                </div>
+            </div>
+            <div class="flex items-center gap-2">
+                <a href="./index.html" target="_blank" class="btn-ghost text-sm">View Site ↗</a>
+                <button id="logout-btn" class="btn-ghost text-sm">Sign Out</button>
+            </div>
+        </div>
+        <div class="container mx-auto px-4 pb-3 flex gap-1 overflow-x-auto">
+            <button class="tab-btn active" data-tab="hero">Hero</button>
+            <button class="tab-btn" data-tab="about">About</button>
+            <button class="tab-btn" data-tab="experience">Experience</button>
+            <button class="tab-btn" data-tab="projects">Projects</button>
+            <button class="tab-btn" data-tab="skills">Skills</button>
+            <button class="tab-btn" data-tab="services">Services</button>
+            <button class="tab-btn" data-tab="education">Education</button>
+            <button class="tab-btn" data-tab="achievements">Achievements</button>
+            <button class="tab-btn" data-tab="testimonials">Testimonials</button>
+            <button class="tab-btn" data-tab="blog">Blog</button>
+            <button class="tab-btn" data-tab="contact">Contact</button>
+            <button class="tab-btn" data-tab="theme">🎨 Theme</button>
+            <button class="tab-btn" data-tab="advanced">Advanced</button>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8 max-w-5xl">
+        <div id="tab-content"></div>
+    </main>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script src="./assets/js/firebase-config.js"></script>
+<script src="./assets/js/defaults.js"></script>
+<script src="./assets/js/themes.js"></script>
+<script type="module" src="./assets/js/data-layer.js"></script>
+<script type="module" src="./assets/js/admin.js"></script>
+</body>
+</html>
