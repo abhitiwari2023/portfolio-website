@@ -772,6 +772,14 @@ async function init() {
         hint.classList.remove('hidden');
     }
 
+    // If we're returning from a redirect sign-in (mobile / popup-blocked path), consume it.
+    try {
+        await window.PortfolioData.consumeRedirectResult();
+    } catch (e) {
+        const err = document.getElementById('login-error');
+        if (err) { err.textContent = e.message; err.classList.remove('hidden'); }
+    }
+
     window.PortfolioData.onAuthChange(async (user) => {
         if (!user) {
             loginView.classList.remove('hidden');

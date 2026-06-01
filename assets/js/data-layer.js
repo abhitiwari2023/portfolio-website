@@ -5,7 +5,8 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
 import {
-    getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged
+    getAuth, GoogleAuthProvider, signInWithPopup, signInWithRedirect, getRedirectResult,
+    signOut, onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-auth.js";
 import {
     getFirestore, doc, getDoc, setDoc, onSnapshot
@@ -65,12 +66,40 @@ async function adminLogin() {
     if (!ready) throw new Error('Firebase not configured. Edit assets/js/firebase-config.js first.');
     const provider = new GoogleAuthProvider();
     provider.setCustomParameters({ prompt: 'select_account' });
-    const result = await signInWithPopup(auth, provider);
-    if (result.user.email !== window.ADMIN_EMAIL) {
-        await signOut(auth);
-        throw new Error(`Only ${window.ADMIN_EMAIL} can sign in to admin.`);
+
+    // Try popup first (faster UX). If browser blocks it (mobile / strict COOP), fall back to redirect.
+    try {
+        const result = await signInWithPopup(auth, provider);
+        if (result.user.email.toLowerCase() !== window.ADMIN_EMAIL.toLowerCase()) {
+            await signOut(auth);
+            throw new Error(`Only ${window.ADMIN_EMAIL} can sign in to admin.`);
+        }
+        return result;
+    } catch (err) {
+        const fallbackCodes = ['auth/popup-blocked', 'auth/popup-closed-by-user', 'auth/cancelled-popup-request', 'auth/operation-not-supported-in-this-environment'];
+        if (fallbackCodes.includes(err.code)) {
+            await signInWithRedirect(auth, provider);
+            return; // page will reload after Google redirects back
+        }
+        throw err;
     }
-    return result;
+}
+
+// On page load, check if we're returning from a redirect-based sign-in.
+async function consumeRedirectResult() {
+    if (!ready) return null;
+    try {
+        const result = await getRedirectResult(auth);
+        if (!result) return null;
+        if (result.user.email.toLowerCase() !== window.ADMIN_EMAIL.toLowerCase()) {
+            await signOut(auth);
+            throw new Error(`Only ${window.ADMIN_EMAIL} can sign in to admin.`);
+        }
+        return result;
+    } catch (e) {
+        console.warn('Redirect result error:', e);
+        return null;
+    }
 }
 
 async function adminLogout() {
@@ -105,6 +134,7 @@ window.PortfolioData = {
     subscribeContent,
     saveContent,
     adminLogin,
+    consumeRedirectResult,
     adminLogout,
     onAuthChange,
     loadThemeMeta,
