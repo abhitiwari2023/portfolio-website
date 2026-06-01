@@ -12,7 +12,7 @@ window.FIREBASE_CONFIG = {
 };
 
 // Only this email can sign in to the admin panel.
-window.ADMIN_EMAIL = "24.MCA.Abhi@gmail.com";
+window.ADMIN_EMAIL = "24.mca.abhi@gmail.com";
 
 // Firebase is configured — site will use Firestore for content + admin login.
 window.FIREBASE_ENABLED = true;

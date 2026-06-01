@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+    <url>
+        <loc>https://abhitiwari.shop/</loc>
+        <lastmod>2025-11-01</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="en-IN" href="https://abhitiwari.shop/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://abhitiwari.shop/"/>
+        <image:image>
+            <image:loc>https://abhitiwari.shop/profile.png</image:loc>
+            <image:title>Abhishek Tiwari — Android Developer</image:title>
+            <image:caption>Profile photo of Abhishek Tiwari, Android Developer and n8n Automation Engineer from Katni, MP, India.</image:caption>
+        </image:image>
+    </url>
+
+    <url>
+        <loc>https://abhitiwari.shop/#about</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://abhitiwari.shop/#experience</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://abhitiwari.shop/#projects</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.95</priority>
+    </url>
+    <url>
+        <loc>https://abhitiwari.shop/#skills</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://abhitiwari.shop/#services</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://abhitiwari.shop/#education</loc>
+        <changefreq>yearly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://abhitiwari.shop/#blog</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://abhitiwari.shop/#contact</loc>
+        <changefreq>yearly</changefreq>
+        <priority>0.85</priority>
+    </url>
+    <url>
+        <loc>https://abhitiwari.shop/Abhishek_Tiwari_Resume.pdf</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+</urlset>

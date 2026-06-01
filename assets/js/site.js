@@ -21,13 +21,17 @@ function renderHero(h) {
             <span class="status-dot"></span>
             <span class="text-sm text-gray-300 font-medium">${esc(h.statusText)}</span>
         </div>
-        <h1 class="font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] mb-6">
+        <h1 class="font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] mb-2">
+            <span class="text-gradient">${esc(h.name || 'Abhishek Tiwari')}</span>
+        </h1>
+        <p class="font-display text-lg md:text-xl text-gray-300 mb-6 font-semibold">${esc(h.role || 'Android Developer & n8n Automation Engineer')}</p>
+        <div class="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.1] mb-6" aria-hidden="true">
             <span class="text-white">${esc(h.line1)} </span>
             <span class="text-gradient">${esc(h.line2)}</span><br>
             <span class="text-white">${esc(h.line3)} </span>
             <span class="text-gradient">${esc(h.line4)}</span>
-        </h1>
-        <p class="text-lg md:text-xl text-gray-400 mb-8 max-w-2xl leading-relaxed">${esc(h.tagline)}</p>
+        </div>
+        <p class="text-base md:text-lg text-gray-400 mb-8 max-w-2xl leading-relaxed">${esc(h.tagline)}</p>
         <div class="flex flex-wrap gap-4 mb-12">
             <a href="#projects" class="btn-glow inline-flex items-center gap-2">View My Work
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>

@@ -4,11 +4,13 @@
 window.DEFAULT_CONTENT = {
     hero: {
         statusText: 'Available for opportunities',
+        name: 'Abhishek Tiwari',
+        role: 'Android Developer & n8n Automation Engineer',
         line1: 'Building',
         line2: 'mobile apps',
         line3: '& automation that',
         line4: 'ships.',
-        tagline: "I'm Abhishek Tiwari — an Android developer & automation engineer. I built the Stream Loop app, design n8n workflows, and ship internal dashboards that teams actually use.",
+        tagline: "I'm an Android developer & n8n automation engineer based in Katni, MP, India. I built the Stream Loop app, design n8n workflows, and ship internal dashboards that teams actually use.",
         stats: [
             { value: '10+', label: 'Projects Shipped' },
             { value: '3', label: 'Apps on Play Store' },
@@ -29,7 +31,7 @@ window.DEFAULT_CONTENT = {
 
     experience: [
         {
-            company: 'Current Company',
+            company: 'ClickRetina Private Limited',
             role: 'Android Developer & Automation Engineer',
             period: 'Present',
             location: 'India',
@@ -41,7 +43,7 @@ window.DEFAULT_CONTENT = {
             ]
         },
         {
-            company: 'Previous Company',
+            company: 'SprinkTeck Solutions',
             role: 'Android Developer',
             period: '2023 — 2024',
             location: 'India',
@@ -57,16 +59,16 @@ window.DEFAULT_CONTENT = {
     education: [
         {
             degree: 'Master of Computer Applications (MCA)',
-            institution: 'Your College',
+            institution: 'Jabalpur Engineering College, Jabalpur (MP)',
             period: '2022 — 2024',
-            grade: '',
+            grade: 'A',
             highlights: 'Focused on mobile computing, software architecture, and data structures.'
         },
         {
             degree: 'Bachelor of Computer Applications (BCA)',
-            institution: 'Your College',
+            institution: 'Tavite Group of Education, Katni (MP)',
             period: '2019 — 2022',
-            grade: '',
+            grade: 'A+',
             highlights: 'Built foundational skills in programming, databases, and web development.'
         }
     ],

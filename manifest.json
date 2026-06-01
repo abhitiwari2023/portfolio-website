@@ -1,0 +1,21 @@
+{
+    "name": "Abhishek Tiwari — Android Developer & Automation Engineer",
+    "short_name": "Abhishek Tiwari",
+    "description": "Portfolio of Abhishek Tiwari — Android developer and n8n automation engineer in Katni, MP, India.",
+    "start_url": "/",
+    "scope": "/",
+    "display": "standalone",
+    "orientation": "portrait",
+    "background_color": "#06060d",
+    "theme_color": "#06060d",
+    "lang": "en-IN",
+    "categories": ["business", "portfolio", "developer"],
+    "icons": [
+        {
+            "src": "./profile.png",
+            "sizes": "192x192 512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ]
+}

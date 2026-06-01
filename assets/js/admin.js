@@ -38,17 +38,21 @@ function renderHeroEditor() {
     return `
         <div class="space-y-5">
             <h2 class="font-display text-2xl font-bold text-white">Hero Section</h2>
-            <p class="text-gray-400 text-sm">The first thing visitors see. Headline reads: <em>"${esc(h.line1)} <span class="text-cyan-300">${esc(h.line2)}</span> ${esc(h.line3)} <span class="text-cyan-300">${esc(h.line4)}</span>"</em></p>
+            <p class="text-gray-400 text-sm">First thing visitors and search engines see. Keep <strong>Name</strong> & <strong>Role</strong> keyword-rich — Google ranks H1 heavily.</p>
 
             <div class="card space-y-3">
+                <div class="grid grid-cols-2 gap-3">
+                    <div><label>Name (H1 — SEO critical)</label><input id="f-name" value="${esc(h.name)}"></div>
+                    <div><label>Role (H2 subtitle)</label><input id="f-role" value="${esc(h.role)}"></div>
+                </div>
                 <div><label>Status Pill Text</label><input id="f-statusText" value="${esc(h.statusText)}"></div>
                 <div class="grid grid-cols-2 gap-3">
-                    <div><label>Line 1 (plain)</label><input id="f-line1" value="${esc(h.line1)}"></div>
-                    <div><label>Line 2 (gradient)</label><input id="f-line2" value="${esc(h.line2)}"></div>
-                    <div><label>Line 3 (plain)</label><input id="f-line3" value="${esc(h.line3)}"></div>
-                    <div><label>Line 4 (gradient)</label><input id="f-line4" value="${esc(h.line4)}"></div>
+                    <div><label>Slogan word 1 (plain)</label><input id="f-line1" value="${esc(h.line1)}"></div>
+                    <div><label>Slogan word 2 (gradient)</label><input id="f-line2" value="${esc(h.line2)}"></div>
+                    <div><label>Slogan word 3 (plain)</label><input id="f-line3" value="${esc(h.line3)}"></div>
+                    <div><label>Slogan word 4 (gradient)</label><input id="f-line4" value="${esc(h.line4)}"></div>
                 </div>
-                <div><label>Tagline / sub-text</label><textarea id="f-tagline" rows="3">${esc(h.tagline)}</textarea></div>
+                <div><label>Tagline / description (keep keyword-rich + location for SEO)</label><textarea id="f-tagline" rows="3">${esc(h.tagline)}</textarea></div>
             </div>
 
             <div class="card">
@@ -476,6 +480,8 @@ window.adminActions = {
         const labs = getAll('.stat-label');
         for (let i = 0; i < vals.length; i++) stats.push({ value: vals[i], label: labs[i] });
         await save({ hero: {
+            name: get('f-name'),
+            role: get('f-role'),
             statusText: get('f-statusText'),
             line1: get('f-line1'), line2: get('f-line2'),
             line3: get('f-line3'), line4: get('f-line4'),
